@@ -1,0 +1,4 @@
+module Wbit_InstructionMemory #(parameter W=4)(InA,RES,CLK,Out0,Out1,Add0,Add1,WEN);
+
+
+endmodule

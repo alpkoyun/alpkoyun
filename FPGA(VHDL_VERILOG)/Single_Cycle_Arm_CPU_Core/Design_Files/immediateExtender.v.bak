@@ -1,0 +1,17 @@
+module immediateExtender(input wire [11:0]ImmSourceControl,
+input ImmediateSource,
+output reg [11:0]Immediate);
+
+always @(ImmSourceControl,ImmediateSource)begin
+	if(ImmSourceControl==1)begin
+	Immediate=ImmediateSource;
+	end else begin
+	Immediate={4'b0000,ImmediateSource[7:0]};
+	
+	end
+	
+
+end
+
+
+endmodule
