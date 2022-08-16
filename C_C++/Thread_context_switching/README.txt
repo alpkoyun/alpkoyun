@@ -1,0 +1,1 @@
+Arguments: First half of Arguments are thread CPU purst times, Second half is IO burst times in order
