@@ -1,0 +1,4 @@
+module Wbit_DMemory #(parameter W=4)(InA,RES,CLK,Out,Add,WEN);
+
+
+endmodule

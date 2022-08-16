@@ -1,0 +1,12 @@
+module pcregister(input wire [31:0] pc,output reg [31:0] pc4,input clk);
+
+
+always@(posedge clk) begin
+pc4=pc;
+
+
+
+end
+
+
+endmodule

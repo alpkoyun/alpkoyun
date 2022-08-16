@@ -1,0 +1,29 @@
+module Wbit_ALU_2305001(InA,Shift,Shiftout);
+			output reg[7:0] Shiftout;
+			
+			input wire signed [7:0] InA;
+			;
+			input wire [2:0] Shift;
+			
+			always@(*)begin
+				case(Shift)
+					3'b000: Result={InA[6:0],InA[7]};//rotate left
+					3'b001: Result={InA[0],InA[7:1]};//rotate right
+					3'b010: Result={InA[6:0],1b'0};//shift left
+					3'b011: Result={1b'0,InA[7:1]};//shift right
+					3'b100: Result=InA>>>1'b1;
+					
+					
+					3'b011:
+					default: Result=InA;
+				endcase
+				
+		end		
+		
+		
+		always@(posedge clk)
+		begin
+		if(Flagwrite==1)
+		Flag=PrevFlag;
+		end
+endmodule

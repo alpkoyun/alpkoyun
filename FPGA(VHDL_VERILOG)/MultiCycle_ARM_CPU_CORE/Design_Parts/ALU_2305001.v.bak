@@ -1,0 +1,31 @@
+module ALU_2305001(InA,InB,ALU_Control,Result,Carry);
+			output reg[7:0] Result;
+			output reg Carry;
+			input wire signed [7:0] InA,InB;
+			input wire [2:0] ALU_Control;
+
+			
+			always@(*)begin
+				case(ALU_Control)
+					3'b000:	begin 
+									{Carry,Result[7:0]}=InA+InB;
+			
+								end
+					3'b001:	begin
+									{Carry,Result[7:0]}=InA-InB;
+									
+									
+								end
+												
+					3'b010: Result=InA&InB;
+					3'b011: Result=InA|InB;
+					3'b100: Result=InA^InB;
+					3'b101: Result=8'h00;
+					3'b101: Result=InB;//shift
+				
+					default: Result=InA;
+				endcase
+				
+		end		
+		
+endmodule
