@@ -1,0 +1,1 @@
+First Arduino reads morse code from buttons, decodes it and sends it to the second arduino where it is turned to LED light according to the letter.
