@@ -1,0 +1,87 @@
+#:kivy 1.0.9
+<PongGame>: 
+   
+    canvas.before:
+        Color:
+            rgba:1,1,1,1
+        Rectangle:
+            pos:self.pos
+            size:self.size
+                
+    Button:
+        center_x: root.width/2
+        top: root.top/2-70
+        text:root.mytext
+        font_size:'10dp'
+        on_press:root.getinp()
+        color:0,0,0,1
+        background_normal:"rdrectanglee.jpg"
+        background_down:"rdrectangle.jpg"
+        
+                    
+        disabled:root.startbool
+        opacity:root.startop
+        
+
+            
+                
+        
+    Image:
+        source: 'Mamoa.png'
+        size: self.texture_size
+        center_x:root.width/2
+        center_y:root.top/2
+        opacity:root.myopacity
+    Label:
+        text:"MAMOA For Better Shopping Experience"
+        center_x:root.width/2
+        center_y:root.top/5
+        color:0,0,0,1
+        font_name:"font1"
+        font_size:'25dp'
+        opacity:root.myopacity
+    Label:
+        text:"Smart Shopping App"
+        center_x:root.width/2
+        center_y:root.top*9/10
+        color:0,0,0,1
+        font_name:"font1"
+        font_size:"30dp"
+        opacity:root.startop
+    Label:
+        text:"Shopping List"
+        center_x:root.width*3/10
+        center_y:root.top*8/10
+        color:0,0,0,1
+        font_name:"font1"
+        font_size:"20dp"
+        opacity:root.startop
+        
+        canvas.before:
+            Color:
+                rgba:0,0.6,0.9,0.5
+                
+            RoundedRectangle:
+                size:root.width*2/10,root.top*3/7
+                pos:self.center_x-root.width/10,root.top*7/20
+                
+        Label:
+            text:"Cart Status"
+            center_x:root.width*7/10
+            center_y:root.top*8/10
+            color:0,0,0,1
+            font_name:"font1"
+            font_size:'20dp'
+            canvas.before:
+                Color:
+                    rgba:0,0.6,0.9,0.5
+                
+                RoundedRectangle:
+                    pos:self.center_x-root.width/10,root.top*7/20
+                    size:root.width*2/10,root.top*3/7
+        Button:
+            text:"Pay"
+            pos:root.width*7/10,root.top*1/10
+            color:0,0,0,1
+            background_normal:"arrow.jpg"
+            background_down:"barrow.jpg"
