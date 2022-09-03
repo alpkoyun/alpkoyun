@@ -48,23 +48,32 @@
 #include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
+#include "xgpio.h"
 #include <unistd.h>
-
-
 int main()
 {
-	char c1;
     init_platform();
+    XGpio Mygpio;
+    XGpio_Config Myconfig;
     print("hello\n\r");
-while(1){
+    Myconfig.BaseAddress=XPAR_AXI_GPIO_0_BASEADDR;
+    Myconfig.DeviceId=0;
+    Myconfig.InterruptPresent=0;
+    Myconfig.IsDual=0;
 
-	c1=inbyte();
-	if(c1=='A')
-    print("\npressed 'A'\n\r");
-	else
-	print("\ndid not pressed 'A'\n");
-    sleep(1);
-}
+
+    XGpio_CfgInitialize(&Mygpio, &Myconfig,XPAR_AXI_GPIO_0_BASEADDR);
+    XGpio_SetDataDirection(&Mygpio,1,0xff);
+
+    while(1){
+
+    	XGpio_DiscreteWrite(&Mygpio,1, 0xff);
+        sleep(1);
+        print("hello\n\r");
+        XGpio_DiscreteWrite(&Mygpio,1, 0x00);
+        sleep(1);
+    }
+
     cleanup_platform();
     return 0;
 }
